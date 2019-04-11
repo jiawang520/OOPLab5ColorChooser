@@ -37,7 +37,7 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener, 
         Document docGreen = greenFld2.getDocument();
         docGreen.addDocumentListener(new MyDocumentListener(greenFld2, sldGreen));
         Document docBlue = blueFld3.getDocument();
-        docRed.addDocumentListener(new MyDocumentListener(blueFld3, sldBlue));
+        docBlue.addDocumentListener(new MyDocumentListener(blueFld3, sldBlue));
     }
 
     /**

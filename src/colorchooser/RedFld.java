@@ -13,7 +13,7 @@ public class RedFld extends JIntegerField implements ColorListener {
 
     @Override
     public void changeColor(ColorEvent ce) {
-//        setText(Integer.toString(Integer.parseInt(ce.getColor().getRed())));
+
     }
     
 }
