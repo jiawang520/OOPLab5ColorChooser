@@ -14,11 +14,12 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.text.Document;
 /**
  *
  * @author 00220682
  */
-public class ColorChooser extends javax.swing.JPanel implements ChangeListener, ColorListener, DocumentListener {
+public class ColorChooser extends javax.swing.JPanel implements ChangeListener, ColorListener {
     private Vector listeners;
 
     /**
@@ -31,8 +32,12 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener, 
         sldGreen.addChangeListener(this);
         sldBlue.addChangeListener(this);
         listeners = new Vector();
-//        Document docRed = redFld1.getDocument();
-//        docRed.
+        Document docRed = redFld1.getDocument();
+        docRed.addDocumentListener(new MyDocumentListener(redFld1, sldRed));
+        Document docGreen = greenFld2.getDocument();
+        docGreen.addDocumentListener(new MyDocumentListener(greenFld2, sldGreen));
+        Document docBlue = blueFld3.getDocument();
+        docRed.addDocumentListener(new MyDocumentListener(blueFld3, sldBlue));
     }
 
     /**
@@ -126,6 +131,21 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener, 
         redFld1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 redFld1KeyReleased(evt);
+            }
+        });
+
+        greenFld2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                greenFld2KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                greenFld2KeyTyped(evt);
+            }
+        });
+
+        blueFld3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                blueFld3KeyReleased(evt);
             }
         });
 
@@ -234,8 +254,26 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener, 
     }//GEN-LAST:event_TxtFldRedActionPerformed
 
     private void redFld1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redFld1KeyReleased
-        // TODO add your handling code here:
+        if(Integer.parseInt(redFld1.getText())<0 || Integer.parseInt(redFld1.getText())>255){
+            redFld1.setText("");
+        }
     }//GEN-LAST:event_redFld1KeyReleased
+
+    private void greenFld2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenFld2KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_greenFld2KeyTyped
+
+    private void greenFld2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenFld2KeyReleased
+        if(Integer.parseInt(greenFld2.getText())<0 || Integer.parseInt(greenFld2.getText())>255){
+            greenFld2.setText("");
+        }
+    }//GEN-LAST:event_greenFld2KeyReleased
+
+    private void blueFld3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_blueFld3KeyReleased
+        if(Integer.parseInt(blueFld3.getText())<0 || Integer.parseInt(blueFld3.getText())>255){
+            blueFld3.setText("");
+        }
+    }//GEN-LAST:event_blueFld3KeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -272,10 +310,7 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener, 
         color = new Color(r,g,b);
         fireColorEvent(new ColorEvent(this,color));
         
-//        redFld1.setText(Integer.toString(r));
-//        greenFld2.setText(Integer.toString(b));
-//        
-//        sldRed.setValue(Integer.parseInt(redFld1.getText()));
+
        
     }
 
@@ -346,20 +381,7 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener, 
         this.sldRed = sldRed;
     }
 
-    @Override
-    public void insertUpdate(DocumentEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void removeUpdate(DocumentEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void changedUpdate(DocumentEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
   
 }

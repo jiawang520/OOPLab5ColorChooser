@@ -185,8 +185,15 @@
       </Events>
     </Component>
     <Component class="colorchooser.RedFld" name="greenFld2">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="greenFld2KeyReleased"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="greenFld2KeyTyped"/>
+      </Events>
     </Component>
     <Component class="colorchooser.RedFld" name="blueFld3">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="blueFld3KeyReleased"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
