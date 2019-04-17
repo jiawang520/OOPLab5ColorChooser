@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
@@ -25,7 +26,7 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener, 
     /**
      * Creates new form ColorChooser
      */
-        Color color;
+        Color color; 
     public ColorChooser() {
         initComponents();
         sldRed.addChangeListener(this);
@@ -48,7 +49,6 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener, 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jLabel1 = new javax.swing.JLabel();
         sldRed = new javax.swing.JSlider();
@@ -56,9 +56,6 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener, 
         sldGreen = new javax.swing.JSlider();
         jLabel3 = new javax.swing.JLabel();
         sldBlue = new javax.swing.JSlider();
-        TxtFldRed = new javax.swing.JTextField();
-        TxtFldGreen = new javax.swing.JTextField();
-        TxtFldBlue = new javax.swing.JTextField();
         redFld1 = new colorchooser.RedFld();
         greenFld2 = new colorchooser.RedFld();
         blueFld3 = new colorchooser.RedFld();
@@ -90,44 +87,11 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener, 
         sldBlue.setPaintTicks(true);
         sldBlue.setValue(0);
 
-        TxtFldRed.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, sldRed, org.jdesktop.beansbinding.ELProperty.create("${value}"), TxtFldRed, org.jdesktop.beansbinding.BeanProperty.create("text"));
-        bindingGroup.addBinding(binding);
-
-        TxtFldRed.addActionListener(new java.awt.event.ActionListener() {
+        redFld1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtFldRedActionPerformed(evt);
+                redFld1ActionPerformed(evt);
             }
         });
-        TxtFldRed.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                TxtFldRedKeyReleased(evt);
-            }
-        });
-
-        TxtFldGreen.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, sldGreen, org.jdesktop.beansbinding.ELProperty.create("${value}"), TxtFldGreen, org.jdesktop.beansbinding.BeanProperty.create("text"));
-        bindingGroup.addBinding(binding);
-
-        TxtFldGreen.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                TxtFldGreenKeyReleased(evt);
-            }
-        });
-
-        TxtFldBlue.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, sldBlue, org.jdesktop.beansbinding.ELProperty.create("${value}"), TxtFldBlue, org.jdesktop.beansbinding.BeanProperty.create("text"));
-        bindingGroup.addBinding(binding);
-
-        TxtFldBlue.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                TxtFldBlueKeyReleased(evt);
-            }
-        });
-
         redFld1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 redFld1KeyReleased(evt);
@@ -157,22 +121,17 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener, 
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TxtFldGreen, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(redFld1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(TxtFldRed)))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(13, 13, 13)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(greenFld2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(TxtFldBlue, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
-                            .addComponent(blueFld3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(blueFld3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(greenFld2, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(redFld1, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(sldBlue, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
@@ -185,79 +144,24 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener, 
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(TxtFldRed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(sldRed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(redFld1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(7, 7, 7)
+                    .addComponent(jLabel1)
+                    .addComponent(sldRed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(redFld1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2)
-                        .addComponent(TxtFldGreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(sldGreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(greenFld2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(4, 4, 4)
+                        .addComponent(greenFld2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sldGreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3)
-                        .addComponent(TxtFldBlue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(sldBlue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(blueFld3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(47, Short.MAX_VALUE))
+                        .addComponent(blueFld3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sldBlue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
-
-        bindingGroup.bind();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void TxtFldRedKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtFldRedKeyReleased
-        String red = TxtFldRed.getText();
-        try {
-                Integer.parseInt(red);
-            } catch (Exception e) {
-                TxtFldRed.setText("");
-            }
-        if(Integer.parseInt(red)<0 || Integer.parseInt(red)>255){
-            TxtFldRed.setText("");
-        }
-    }//GEN-LAST:event_TxtFldRedKeyReleased
-
-    private void TxtFldGreenKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtFldGreenKeyReleased
-        String green = TxtFldGreen.getText();
-        try {
-                Integer.parseInt(green);
-            } catch (Exception e) {
-                TxtFldGreen.setText("");
-            }
-        if(Integer.parseInt(green)<0 || Integer.parseInt(green)>255){
-            TxtFldGreen.setText("");
-        }
-    }//GEN-LAST:event_TxtFldGreenKeyReleased
-
-    private void TxtFldBlueKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtFldBlueKeyReleased
-        String blue = TxtFldBlue.getText();
-        try {
-                Integer.parseInt(blue);
-            } catch (Exception e) {
-                TxtFldBlue.setText("");
-            }
-        if(Integer.parseInt(blue)<0 || Integer.parseInt(blue)>255){
-            TxtFldBlue.setText("");
-        }
-    }//GEN-LAST:event_TxtFldBlueKeyReleased
-
-    private void TxtFldRedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtFldRedActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtFldRedActionPerformed
-
-    private void redFld1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redFld1KeyReleased
-        if(Integer.parseInt(redFld1.getText())<0 || Integer.parseInt(redFld1.getText())>255){
-            redFld1.setText("");
-        }
-    }//GEN-LAST:event_redFld1KeyReleased
 
     private void greenFld2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenFld2KeyTyped
         // TODO add your handling code here:
@@ -266,20 +170,30 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener, 
     private void greenFld2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenFld2KeyReleased
         if(Integer.parseInt(greenFld2.getText())<0 || Integer.parseInt(greenFld2.getText())>255){
             greenFld2.setText("");
+            JOptionPane.showMessageDialog(null, "Number have to be between 0-255");
         }
     }//GEN-LAST:event_greenFld2KeyReleased
 
     private void blueFld3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_blueFld3KeyReleased
         if(Integer.parseInt(blueFld3.getText())<0 || Integer.parseInt(blueFld3.getText())>255){
             blueFld3.setText("");
+            JOptionPane.showMessageDialog(null, "Number have to be between 0-255");
         }
     }//GEN-LAST:event_blueFld3KeyReleased
 
+    private void redFld1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redFld1KeyReleased
+        if(Integer.parseInt(redFld1.getText())<0 || Integer.parseInt(redFld1.getText())>255){
+            redFld1.setText("");
+            JOptionPane.showMessageDialog(null, "Number have to be between 0-255");
+        }
+    }//GEN-LAST:event_redFld1KeyReleased
+
+    private void redFld1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redFld1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_redFld1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField TxtFldBlue;
-    private javax.swing.JTextField TxtFldGreen;
-    private javax.swing.JTextField TxtFldRed;
     private colorchooser.RedFld blueFld3;
     private colorchooser.RedFld greenFld2;
     private javax.swing.JLabel jLabel1;
@@ -289,7 +203,6 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener, 
     private javax.swing.JSlider sldBlue;
     private javax.swing.JSlider sldGreen;
     private javax.swing.JSlider sldRed;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -328,17 +241,9 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener, 
         listeners.removeElement(colorListener);
     }
 
-    public JTextField getTxtFldBlue() {
-        return TxtFldBlue;
-    }
+    
 
-    public JTextField getTxtFldGreen() {
-        return TxtFldGreen;
-    }
-
-    public JTextField getTxtFldRed() {
-        return TxtFldRed;
-    }
+  
 
     public JSlider getSldBlue() {
         return sldBlue;

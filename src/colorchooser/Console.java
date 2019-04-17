@@ -25,15 +25,12 @@ public class Console extends javax.swing.JFrame implements ActionListener, Windo
     /**
      * Creates new form Console
      */
-//        ColorChooser colorchooser;
-//        JColorChooser jcolorchooser;
+
     public Console() {
         initComponents();
         ColorPanel.setBackground(Color.red);
-//        colorchooser = new ColorChooser();
-//        jcolorchooser = new JColorChooser();
-////        btnGetcolor.addActionListener(this);
-//        jcolorchooser.addWindowListener(this);
+        setTitle("Console");
+
     }
 
     /**
@@ -46,49 +43,41 @@ public class Console extends javax.swing.JFrame implements ActionListener, Windo
     private void initComponents() {
 
         ColorPanel = new javax.swing.JPanel();
-        btnGetcolor = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        ColorPanel.setName("Color Display"); // NOI18N
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Color Console");
 
         javax.swing.GroupLayout ColorPanelLayout = new javax.swing.GroupLayout(ColorPanel);
         ColorPanel.setLayout(ColorPanelLayout);
         ColorPanelLayout.setHorizontalGroup(
             ColorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
         );
         ColorPanelLayout.setVerticalGroup(
             ColorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(ColorPanelLayout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 86, Short.MAX_VALUE))
         );
-
-        btnGetcolor.setText("Get Color");
-        btnGetcolor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGetcolorActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(btnGetcolor, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ColorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(ColorPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(ColorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btnGetcolor)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnGetcolorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGetcolorActionPerformed
-//        jcolorchooser.setVisible(true);
-    }//GEN-LAST:event_btnGetcolorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,7 +116,7 @@ public class Console extends javax.swing.JFrame implements ActionListener, Windo
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel ColorPanel;
-    private javax.swing.JButton btnGetcolor;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 
     @Override
